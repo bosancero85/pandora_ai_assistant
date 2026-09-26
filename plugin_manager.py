@@ -126,6 +126,23 @@ class PluginManager:
             lines.append(f"- {action} – {plugin.description}")
         lines.append("- unknown – falls der Befehl keiner Aktion zugeordnet werden kann")
         lines.append("")
+
+        if "open_app" in self.active_plugins():
+            lines.append(
+                "WICHTIG zu 'open_app': Das gilt AUCH für Programme, die dir "
+                "nicht bekannt vorkommen oder ungewöhnlich/individuell benannt "
+                "sind (z. B. private oder selbstgeschriebene Tools des "
+                "Nutzers). Wenn der Befehl erkennbar ein Programm öffnen oder "
+                "starten soll (Muster wie 'öffne ...', 'starte ...', 'open "
+                "...', auch mit Namen, die du nicht kennst), antworte IMMER "
+                "mit 'open_app' und dem genannten Namen als query - auch wenn "
+                "du nicht weißt, ob dieses Programm existiert. Antworte in "
+                "diesem Fall NIEMALS mit 'unknown'; die Entscheidung, ob das "
+                "Programm tatsächlich startbar ist, trifft die Anwendung "
+                "selbst, nicht du."
+            )
+            lines.append("")
+
         lines.append(
             "Gib niemals Erklärungen, Markdown-Codeblöcke oder Text außerhalb "
             "des JSON-Objekts aus."

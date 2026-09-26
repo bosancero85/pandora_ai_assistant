@@ -39,6 +39,29 @@ class OllamaModelsThread(QThread):
             self.error.emit(f"Unerwarteter Fehler: {exc}")
 
 
+class OllamaHealthCheckThread(QThread):
+    """
+    Prüft schnell (kurzer Timeout), ob der Ollama-Host aktuell erreichbar
+    ist - für den Online/Offline-Statuspunkt in der Titelleiste. Nutzt
+    bewusst denselben /api/tags-Endpunkt wie OllamaModelsThread, damit
+    kein zusätzlicher Endpunkt vorausgesetzt werden muss.
+    """
+
+    result_ready = pyqtSignal(bool)
+
+    def __init__(self, host: str, parent=None):
+        super().__init__(parent)
+        self.host = host.rstrip("/")
+
+    def run(self):
+        try:
+            resp = requests.get(f"{self.host}/api/tags", timeout=3)
+            online = resp.status_code == 200
+        except requests.exceptions.RequestException:
+            online = False
+        self.result_ready.emit(online)
+
+
 class OllamaCommandThread(QThread):
     """
     Schickt einen frei eingegebenen Nutzerbefehl zusammen mit einem

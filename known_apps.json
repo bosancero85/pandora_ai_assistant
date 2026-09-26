@@ -1,0 +1,19 @@
+{
+  "_hinweis": "Diese Datei wird bei JEDEM 'öffne ...'-Befehl frisch eingelesen (kein Neustart/Reload nötig). Schlüssel = wie im Sprachbefehl genannt (Groß/Kleinschreibung egal, 'pandora '-Präfix optional weglassbar). Wert = Liste von Kandidaten-Kommandos; das Plugin probiert sie der Reihe nach, bis eines startet. 'pandora script editor' und 'pandora chatbot' zeigen auf die tatsächlichen Installationspfade auf Akis Kali-Rechner (/home/kali/...), gestartet über 'python3 <script>.py', da beides reine Python-Skripte ohne installiertes Binary/Symlink sind.",
+  "Linux": {
+    "pandora script editor": [["python3", "/home/kali/pandora_script_editor/editor_integration/pandora_script_editor.py"]],
+    "script editor": [["python3", "/home/kali/pandora_script_editor/editor_integration/pandora_script_editor.py"]],
+    "pandora chatbot": [["python3", "/home/kali/pandora_chatbot/main.py"]],
+    "chatbot": [["python3", "/home/kali/pandora_chatbot/main.py"]]
+  },
+  "Windows": {
+    "pandora script editor": [["pandora_script_editor.exe"]],
+    "script editor": [["pandora_script_editor.exe"]],
+    "pandora chatbot": [["pandora_chatbot.exe"]],
+    "chatbot": [["pandora_chatbot.exe"]]
+  },
+  "Darwin": {
+    "pandora script editor": [["open", "-a", "Pandora Script Editor"]],
+    "pandora chatbot": [["open", "-a", "Pandora ChatBot"]]
+  }
+}
