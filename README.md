@@ -15,6 +15,10 @@ Teil des **Pandora®**-Ökosystems von **AKI_SystemDown®**.
 
 ---
 
+![Icon](assets/icon/icon.png)
+
+---
+
 ## Inhaltsverzeichnis
 
 - [Features](#features)
